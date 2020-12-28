@@ -1,0 +1,45 @@
+{
+  "name": "release-version-webpack-plugin",
+  "version": "1.0.0",
+  "description": "A webpack plugin for automatic log current release commit hash and version from package.json.",
+  "main": "index.js",
+  "repository": "git@github.com:izayl/release-version-webpack-plugin.git",
+  "author": "izayl <izayl@163.com>",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable",
+    "test": "jest",
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.1.0",
+    "@types/webpack": "^4.41.25",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "husky": "^5.0.6",
+    "jest": "^26.6.3",
+    "lint-staged": ">=10",
+    "pinst": "^2.1.1",
+    "prettier": "^2.2.1",
+    "rollup": "^2.35.1",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "peerDependencies": {
+    "webpack": ">=4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js|ts)": "eslint --cache --fix && jest"
+  }
+}
