@@ -1,6 +1,6 @@
 {
   "name": "release-version-webpack-plugin",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A webpack plugin for automatic log current release commit hash and version from package.json.",
   "main": "index.js",
   "repository": "git@github.com:izayl/release-version-webpack-plugin.git",
