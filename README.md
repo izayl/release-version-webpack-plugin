@@ -1,5 +1,7 @@
 # ReleaseVersionWebpackPlugin
 
+![CI](https://github.com/izayl/release-version-webpack-plugin/workflows/CI/badge.svg)
+
 A webpack plugin for automatic log current release commit hash and version from package.json.
 
 -----
