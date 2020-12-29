@@ -8,7 +8,13 @@ export default {
     footer: 'module.exports = ReleaseVersionWebpackPlugin;',
     format: 'cjs',
   },
-  // external,
+  external: [
+    'assert',
+    'html-webpack-plugin',
+    'child_process',
+    'date-fns',
+    'util',
+  ],
   plugins: [
     typescript({
       declaration: true,

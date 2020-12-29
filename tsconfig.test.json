@@ -2,14 +2,5 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
-    "esModuleInterop": true
-  },
-  "include": [
-    "**/*"
-  ],
-  "exclude": [
-    "coverage",
-    "node_modules",
-    "src"
-  ]
+  }
 }
