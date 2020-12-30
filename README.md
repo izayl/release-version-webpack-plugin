@@ -8,6 +8,18 @@ A webpack plugin for automatic log current release commit hash and version from 
 
 -----
 
+## Feature
+
+- [] Support different Webpack & html-webpack-plugin version
+  - [] webpack 3 & html-webpack-plugin 3
+  - [x] webpack 4 & html-webpack-plugin 3
+  - [] webpack 5 & html-webpack-plugin 4/5
+- [] Support custom release log format
+- [] Support different type of file inject
+  - [x] .html
+  - [] .css
+  - [] .js
+
 ## Installation
 
 ```shell
