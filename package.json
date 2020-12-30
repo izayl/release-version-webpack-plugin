@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
+    "prepublishOnly": "pinst --disable && npm run build",
     "postpublish": "pinst --enable",
     "test": "jest",
     "build": "rollup -c",
