@@ -25,7 +25,7 @@ describe('ReleaseVersionWebpackPlugin', () => {
   it('should exist', async () => {
     const result = await compilation()
 
-    const plugin = result.compilation.options.plugins.find(
+    const plugin = (result.compilation.compiler.options.plugins || []).find(
       p => p instanceof ReleaseVersionWebpackPlugin
     )
     expect(plugin).toBeDefined()
@@ -37,5 +37,6 @@ describe('ReleaseVersionWebpackPlugin', () => {
       .toString()
     const reg = /Release: [a-zA-Z0-9]{8}@\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/
     expect(reg.test(htmlContent)).toBeTruthy()
+    if (!reg.test(htmlContent)) console.log(htmlContent)
   })
 })
