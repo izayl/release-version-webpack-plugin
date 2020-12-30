@@ -53,7 +53,7 @@
     ]
   },
   "lint-staged": {
-    "*.(js|ts)": "eslint --cache --fix && jest"
+    "*.(js|ts)": "eslint --cache --fix"
   },
   "dependencies": {
     "date-fns": "^2.16.1"
