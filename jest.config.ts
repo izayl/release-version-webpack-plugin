@@ -11,5 +11,7 @@ export default {
     },
   },
   coverageDirectory: 'coverage',
+  coverageReporters: ['json-summary'],
   testEnvironment: 'node',
+  watchPathIgnorePatterns: ['dist', 'node_modules'],
 }

@@ -1,10 +1,11 @@
-import webpack from 'webpack'
-import HTMLWebpackPlugin from 'html-webpack-plugin'
-import { ReleaseVersionWebpackPlugin } from '../src/index'
-import path from 'path'
 import fs from 'fs'
+import path from 'path'
+import { ReleaseVersionWebpackPlugin } from '../../src'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import webpack from 'webpack'
 
-const OUTPUT_PATH = path.resolve(__dirname, '../dist')
+const OUTPUT_PATH = path.resolve(__dirname, './dist')
+
 const compilation = async () =>
   new Promise<webpack.Stats>((resolve, reject) =>
     webpack(
@@ -13,14 +14,14 @@ const compilation = async () =>
         output: {
           path: OUTPUT_PATH,
         },
-        plugins: [new HTMLWebpackPlugin(), new ReleaseVersionWebpackPlugin()],
+        plugins: [new HtmlWebpackPlugin(), new ReleaseVersionWebpackPlugin()],
       },
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       (err, stats) => (err ? reject(err) : resolve(stats!))
     )
   )
 
-describe('ReleaseVersionWebpackPlugin at default webpack@4 & html-webpack-plugin@3', () => {
+describe('ReleaseVersionWebpackPlugin at webpack@3 & html-webpack-plugin@3', () => {
   it('should exist', async () => {
     const result = await compilation()
 

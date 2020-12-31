@@ -3,6 +3,7 @@
 ![CI](https://github.com/izayl/release-version-webpack-plugin/workflows/CI/badge.svg)
 ![npm](https://img.shields.io/npm/v/release-version-webpack-plugin)
 ![npm](https://img.shields.io/npm/dm/release-version-webpack-plugin)
+![Lines](https://img.shields.io/badge/Coverage-96.88%25-brightgreen.svg)
 
 A webpack plugin for automatic log current release commit hash and version from package.json.
 
@@ -11,7 +12,7 @@ A webpack plugin for automatic log current release commit hash and version from 
 ## Feature
 
 - [] Support different Webpack & html-webpack-plugin version
-  - [] webpack 3 & html-webpack-plugin 3
+  - [x] webpack 3 & html-webpack-plugin 3
   - [x] webpack 4 & html-webpack-plugin 3
   - [] webpack 5 & html-webpack-plugin 4/5
 - [] Support custom release log format
