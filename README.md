@@ -3,6 +3,7 @@
 ![CI](https://github.com/izayl/release-version-webpack-plugin/workflows/CI/badge.svg)
 ![npm](https://img.shields.io/npm/v/release-version-webpack-plugin)
 ![npm](https://img.shields.io/npm/dm/release-version-webpack-plugin)
+![Lines](https://img.shields.io/badge/Coverage-96.88%25-brightgreen.svg)
 
 A webpack plugin for automatic log current release commit hash and version from package.json.
 
