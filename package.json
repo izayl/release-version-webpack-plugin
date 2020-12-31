@@ -10,6 +10,7 @@
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable && npm run build",
     "postpublish": "pinst --enable",
+    "release": "standard-version --no-verify",
     "test": "jest",
     "build": "rollup -c",
     "dev": "rollup -c -w"
