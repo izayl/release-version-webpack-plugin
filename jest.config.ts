@@ -12,4 +12,5 @@ export default {
   },
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
+  watchPathIgnorePatterns: ['dist', 'node_modules'],
 }

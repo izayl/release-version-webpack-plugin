@@ -4,13 +4,10 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { promisify } from 'util'
 import { exec } from 'child_process'
 import { format } from 'date-fns'
+import { htmlWebpackData } from './typings'
 
 export class ReleaseVersionWebpackPlugin {
   pluginName = 'ReleaseVersionWebpackPlugin'
-
-  // constructor(options?: unknown) {
-  // console.log('pluginDidMount', 'ReleaseVersionWebpackPlugin', options)
-  // }
 
   init(compilation: webpack.compilation.Compilation): void {
     const stats = compilation.getStats()
@@ -70,26 +67,32 @@ export class ReleaseVersionWebpackPlugin {
         // }
       })
     } else {
-      // TODO: Support webpack@^3.0.0
-      // compilation.plugin(
-      //   'html-webpack-plugin-alter-asset-tags',
-      //   async (
-      //     data: HtmlWebpackData,
-      //     cb: (err: Error | null, data: HtmlWebpackData) => void
-      //   ) => {
-      //     const info = await this.getReleaseVersion()
-      //     // @ts-ignore
-      //     const inject = data.plugin.createHtmlTag({
-      //       tagName: 'script',
-      //       attributes: {
-      //         type: 'text/javascript',
-      //       },
-      //       innerHTML: `console.log("Release: ${info}");`,
-      //     })
-      //     data.head.push(inject)
-      //     cb(null, data)
-      //   }
-      // )
+      // webpack before 4
+      compiler.plugin('compilation', compilation => {
+        compilation.plugin(
+          'html-webpack-plugin-alter-asset-tags',
+          async (
+            data: htmlWebpackData['AlterAssetTags'],
+            cb: (
+              err: Error | null,
+              data: htmlWebpackData['AlterAssetTags']
+            ) => void
+          ) => {
+            const info = await this.getReleaseVersion()
+            const injectTagObj = {
+              tagName: 'script',
+              attributes: {
+                type: 'text/javascript',
+              },
+              voidTag: false,
+              innerHTML: `console.log("Release: ${info}");`,
+            }
+            data.head.push(injectTagObj)
+
+            cb(null, data)
+          }
+        )
+      })
     }
   }
 }
