@@ -27,7 +27,7 @@ export class ReleaseVersionWebpackPlugin {
       await promisify(exec)('git rev-parse --short=8 HEAD', { cwd }),
       // await exec('git tag') // get tag info
     ]).then(([commit]) => {
-      return `${commit.stdout.trimEnd()}@${format(
+      return `${commit.stdout.trim()}@${format(
         new Date(),
         'yyyy-MM-dd HH:mm:ss'
       )}`
