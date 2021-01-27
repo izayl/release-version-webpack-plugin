@@ -1,8 +1,8 @@
-import webpack, { Compiler } from 'webpack'
 import assert from 'assert'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { promisify } from 'util'
 import { exec } from 'child_process'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import webpack, { Compiler } from 'webpack'
 import { format } from 'date-fns'
 import { htmlWebpackData } from './typings'
 
@@ -29,7 +29,7 @@ export class ReleaseVersionWebpackPlugin {
     ]).then(([commit]) => {
       return `${commit.stdout.trim()}@${format(
         new Date(),
-        'yyyy-MM-dd HH:mm:ss'
+        'yyyy-MM-dd HH:mm:ss',
       )}`
     })
   }
@@ -57,7 +57,7 @@ export class ReleaseVersionWebpackPlugin {
               }
               htmlPluginData.head.push(injectTagObj)
               return htmlPluginData
-            }
+            },
           )
         }
 
@@ -71,12 +71,12 @@ export class ReleaseVersionWebpackPlugin {
       compiler.plugin('compilation', compilation => {
         compilation.plugin(
           'html-webpack-plugin-alter-asset-tags',
-          async (
+          async(
             data: htmlWebpackData['AlterAssetTags'],
             cb: (
               err: Error | null,
               data: htmlWebpackData['AlterAssetTags']
-            ) => void
+            ) => void,
           ) => {
             const info = await this.getReleaseVersion()
             const injectTagObj = {
@@ -90,7 +90,7 @@ export class ReleaseVersionWebpackPlugin {
             data.head.push(injectTagObj)
 
             cb(null, data)
-          }
+          },
         )
       })
     }
